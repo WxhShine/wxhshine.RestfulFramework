@@ -8,7 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace ASPCoreRestfulApiDemo.Service
+namespace ASPCoreRestfulApiDemo.Repository
 {
     public class CompanyRepository : ICompanyRepository
     {

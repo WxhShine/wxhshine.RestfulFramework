@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ASPCoreRestfulApiDemo.Entities;
 using ASPCoreRestfulApiDemo.Model;
-using ASPCoreRestfulApiDemo.Service;
+using ASPCoreRestfulApiDemo.Repository;
 using ASPCoreRestfulApiDemo.Utils;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
