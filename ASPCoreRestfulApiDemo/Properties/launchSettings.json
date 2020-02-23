@@ -3,8 +3,7 @@
   "profiles": {
     "ASPCoreRestfulApiDemo": {
       "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "api/compaies",
+      "launchUrl": "api/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -1,4 +1,5 @@
-﻿using ASPCoreRestfulApiDemo.Utils;
+﻿using ASPCoreRestfulApiDemo.Entities;
+using ASPCoreRestfulApiDemo.Utils;
 using Confluent.Kafka;
 using System;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace ASPCoreRestfulApiDemo.Kafka
     {
         public static async Task SendAsync<T>(string topic, string value)
         {
-            var config = new ProducerConfig { BootstrapServers = ConfigHelper.GetConfig("KafkaMapping:BootstrapServers") };
+            var config = new ProducerConfig { BootstrapServers = ConfigEntity.Instance.kafkaMapping.BootstrapServers };
             using (var p = new ProducerBuilder<Null, string>(config).Build())
             {
                 try

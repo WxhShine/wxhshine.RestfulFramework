@@ -12,7 +12,7 @@ namespace ASPCoreRestfulApiDemo.Utils
         // <summary>
         /// 获取配置文件中的内容，继承自IConfiguration
         /// </summary>
-        private static IConfigurationRoot _configuration { get; set; }
+        private static IConfiguration _configuration { get; set; }
 
         static ConfigHelper()
         {
@@ -23,11 +23,6 @@ namespace ASPCoreRestfulApiDemo.Utils
             directory = directory.Replace("\\", "/");
 
             var filePath = $"{directory}/{fileName}";
-            if (!File.Exists(filePath))
-            {
-                var length = directory.IndexOf("/bin");
-                filePath = $"{directory.Substring(0, length)}/{fileName}";
-            }
 
             var builder = new ConfigurationBuilder()
                 .AddJsonFile(filePath, false, true);

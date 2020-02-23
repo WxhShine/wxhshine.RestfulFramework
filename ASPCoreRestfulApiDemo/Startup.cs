@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASPCoreRestfulApiDemo.Data;
+using ASPCoreRestfulApiDemo.Entities;
 using ASPCoreRestfulApiDemo.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -49,6 +50,8 @@ namespace ASPCoreRestfulApiDemo
             {
                 x.UseMySQL(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
             });
+            
+            Configuration.GetSection("ConfigEntity").Bind(ConfigEntity.Instance);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

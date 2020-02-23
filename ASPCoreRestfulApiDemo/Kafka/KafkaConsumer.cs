@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ASPCoreRestfulApiDemo.Entities;
+using Confluent.Kafka;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +15,12 @@ namespace ASPCoreRestfulApiDemo.Kafka
 
         public void Subscribe()
         {
-            
+            var config = new ConsumerConfig
+            {
+                GroupId = ConsumerGroup,
+                BootstrapServers = ConfigEntity.Instance.kafkaMapping.BootstrapServers,
+                AutoOffsetReset = AutoOffsetReset.Earliest
+            };
         }
     }
 }
