@@ -30,7 +30,7 @@ namespace ASPCoreRestfulApiDemo
                 catch (Exception ex)
                 {
                     var logger = scope.ServiceProvider.GetService<ILogger<Program>>();
-                    logger.LogError(ex, "Ç¨ÒÆÊý¾Ý¿âÊ§°Ü");
+                    logger.LogError(ex, "Ç¨ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½Ê§ï¿½ï¿½");
                 }
             }
             host.Run(); ;

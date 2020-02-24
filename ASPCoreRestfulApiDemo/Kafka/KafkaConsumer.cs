@@ -1,5 +1,6 @@
 ﻿using ASPCoreRestfulApiDemo.Entities;
 using Confluent.Kafka;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,25 @@ namespace ASPCoreRestfulApiDemo.Kafka
                 BootstrapServers = ConfigEntity.Instance.kafkaMapping.BootstrapServers,
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
+
+            var builder = new ConsumerBuilder<string, string>(config);
+            using(var consumer = builder.Build())
+            {
+                consumer.Subscribe(Topic);
+                while (true)
+                {
+                    var result = consumer.Consume();
+                    try
+                    {
+                        var message = JsonConvert.DeserializeObject<T>(result.Value);
+                        DealMessage(message);
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine($"Topic : {result.Topic}, Message : {result.Value}");
+                    }
+                }
+            }
         }
     }
 }
