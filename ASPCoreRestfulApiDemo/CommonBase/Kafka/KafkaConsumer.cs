@@ -1,4 +1,4 @@
-﻿using ASPCoreRestfulApiDemo.Entities;
+﻿using ASPCoreRestfulApiDemo.Configuration;
 using Confluent.Kafka;
 using Newtonsoft.Json;
 using System;

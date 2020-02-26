@@ -36,7 +36,7 @@ namespace ASPCoreRestfulApiDemo
                     logger.LogError(ex, "数据库连接失败");
                 }
             }
-            host.Run(); ;
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

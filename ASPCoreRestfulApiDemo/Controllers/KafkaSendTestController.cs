@@ -12,8 +12,8 @@ namespace ASPCoreRestfulApiDemo.Controllers
     [Route("api/kafkaSendTest")]
     public class KafkaSendTestController : ControllerBase
     {
-        [HttpGet("sendMessage/{message}")]
-        public async Task<IActionResult>  KafkaSendMessage(string message)
+        [HttpGet]
+        public async Task<IActionResult>  KafkaSendMessage()
         {
             await KafkaProducer.SendAsync("test", new TestKafkaEntity { ConsumerValue = "这是通过webAPi发送的Kafka消息:" + DateAndTime.Now.ToString("yyyy-MM-dd  hh:mm:ss") });
             return Ok();
