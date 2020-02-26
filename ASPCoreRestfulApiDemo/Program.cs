@@ -26,7 +26,6 @@ namespace ASPCoreRestfulApiDemo
                 var dbContext = scope.ServiceProvider.GetService<AspCoreRestApiDbContext>();
                 try
                 {
-
                     //dbContext.Database.EnsureDeleted();
                     dbContext.Database.EnsureCreated();
                     //dbContext.Database.Migrate();
