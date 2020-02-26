@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASPCoreRestfulApiDemo.Data;
+using ASPCoreRestfulApiDemo.Kafka;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,9 +17,12 @@ namespace ASPCoreRestfulApiDemo
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
-            using(var scope = host.Services.CreateScope())
+            var hostBuilder = CreateHostBuilder(args);
+            var host = hostBuilder.Build();
+            using (var scope = host.Services.CreateScope())
             {
+                var testConsumer = scope.ServiceProvider.GetService<ITestKafkaConsumer>();
+                testConsumer.Subscribe();
                 var dbContext = scope.ServiceProvider.GetService<AspCoreRestApiDbContext>();
                 try
                 {
@@ -30,7 +34,7 @@ namespace ASPCoreRestfulApiDemo
                 catch (Exception ex)
                 {
                     var logger = scope.ServiceProvider.GetService<ILogger<Program>>();
-                    logger.LogError(ex, "Ǩ�����ݿ�ʧ��");
+                    logger.LogError(ex, "数据库连接失败");
                 }
             }
             host.Run(); ;
@@ -40,7 +44,7 @@ namespace ASPCoreRestfulApiDemo
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-               webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }

@@ -6,15 +6,30 @@ using System.Threading.Tasks;
 
 namespace ASPCoreRestfulApiDemo.Kafka
 {
-    public class TestKafkaConsumer : KafkaConsumer<TestKafkaEntity>
+    public class TestKafkaConsumer :  ITestKafkaConsumer
     {
+
+        private KafkaConsumer<TestKafkaEntity> consumer { get; set; }
+
         public TestKafkaConsumer()
         {
-            Topic = "test";
+            consumer = new KafkaConsumer<TestKafkaEntity>
+            {
+                Topic = "test",
+                ConsumerGroup = "console-consumer-63873",
+            };
+
         }
-        public override void DealMessage(TestKafkaEntity message)
+        public void DealMessage(TestKafkaEntity message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("-------------------------------------------------------------");
+            Console.WriteLine("这是一个消费者!!!" + message.ConsumerValue);
+            Console.WriteLine("-------------------------------------------------------------");
+        }
+
+        public void Subscribe()
+        {
+            consumer.Subscribe(DealMessage);
         }
     }
 }

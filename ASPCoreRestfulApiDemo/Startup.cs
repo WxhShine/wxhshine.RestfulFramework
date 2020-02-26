@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ASPCoreRestfulApiDemo.Data;
 using ASPCoreRestfulApiDemo.Entities;
+using ASPCoreRestfulApiDemo.Kafka;
 using ASPCoreRestfulApiDemo.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -50,7 +51,9 @@ namespace ASPCoreRestfulApiDemo
             {
                 x.UseMySQL(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
             });
-            
+
+            services.AddSingleton<ITestKafkaConsumer, TestKafkaConsumer>();
+
             Configuration.GetSection("ConfigEntity").Bind(ConfigEntity.Instance);
         }
 

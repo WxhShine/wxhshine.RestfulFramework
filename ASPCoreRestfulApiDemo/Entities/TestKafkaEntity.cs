@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ASPCoreRestfulApiDemo.Entities
 {
+    [Serializable]
     public class TestKafkaEntity : KafkaMessage
     {
         public string ConsumerValue { get; set; }
