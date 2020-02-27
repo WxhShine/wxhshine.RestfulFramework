@@ -31,15 +31,15 @@ services:
           - ./compose/mysql/data:/var/lib/mysql
           
       environment:
-        MYSQL_ROOT_PASSWORD:"123456"
+        MYSQL_ROOT_PASSWORD: "123456"
 
     redis:
       image: redis
       container_name: compose-redis
       ports:
         - "6379:6379"
-      valumes:
-        -"./compose/redis:/data"
+      volumes:
+        - "./compose/redis:/data"
 
     aspcorerestapi:
       build: .
