@@ -25,9 +25,9 @@ services:
       container_name: compose-mysql
       ports:
         - "3306:3306"
-      volumes:[
-          - "./compose/mysql/conf:/etc/mysql/conf.d"
-          - "./compose/mysql/logs:/logs"
+      volumes: [
+          - "./compose/mysql/conf:/etc/mysql/conf.d",
+          - "./compose/mysql/logs:/logs",
           - "./compose/mysql/data:/var/lib/mysql"
           ]
       environment:
