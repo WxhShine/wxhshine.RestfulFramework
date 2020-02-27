@@ -43,7 +43,7 @@ namespace ASPCoreRestfulApiDemo
 
             services.AddDbContext<AspCoreRestApiDbContext>(x =>
             {
-                x.UseMySQL(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
+                x.UseMySql(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
             });
 
             services.AddScoped<ICompanyRepository, CompanyRepository>();

@@ -18,7 +18,16 @@ namespace ASPCoreRestfulApiDemo
         public static void Main(string[] args)
         {
             var hostBuilder = CreateHostBuilder(args);
-            var host = hostBuilder.Build();
+            IHost host;
+            try
+            {
+                host = hostBuilder.Build();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
             using (var scope = host.Services.CreateScope())
             {
                 var testConsumer = scope.ServiceProvider.GetService<ITestKafkaConsumer>();
@@ -26,9 +35,9 @@ namespace ASPCoreRestfulApiDemo
                 var dbContext = scope.ServiceProvider.GetService<AspCoreRestApiDbContext>();
                 try
                 {
-                    //dbContext.Database.EnsureDeleted();
-                    dbContext.Database.EnsureCreated();
-                    //dbContext.Database.Migrate();
+                    dbContext.Database.EnsureDeleted();
+                    //dbContext.Database.EnsureCreated();
+                    dbContext.Database.Migrate();
                 }
                 catch (Exception ex)
                 {
