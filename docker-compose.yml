@@ -3,11 +3,13 @@ version: "2.0"
 services:
     zookeeper:
       image: wurstmeister/zookeeper
+      container_name: compose-kafka
       ports:
         - "2181:2181"
         
     kafka:
       image: wurstmeister/kafka
+      container_name: compose-kafka
       depends_on: [ zookeeper ]
       ports:
         - "9092:9092"
@@ -23,10 +25,11 @@ services:
       container_name: compose-mysql
       ports:
         - "3306:3306"
-      volumes:
+      volumes:[
           - "./compose/mysql/conf:/etc/mysql/conf.d"
           - "./compose/mysql/logs:/logs"
           - "./compose/mysql/data:/var/lib/mysql"
+          ]
       environment:
         MYSQL_ROOT_PASSWORD:"123456"
 
@@ -41,6 +44,6 @@ services:
     aspcorerestapi:
       build: .
       image: aspcorerestapi:latest
-      container_name: aspcorerestapi
+      container_name: compose-aspcorerestapi
       ports:
         - "80:80"
