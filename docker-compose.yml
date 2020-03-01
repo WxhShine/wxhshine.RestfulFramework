@@ -3,7 +3,7 @@ version: "2.0"
 services:
     zookeeper:
       image: wurstmeister/zookeeper
-      container_name: compose-kafka
+      container_name: compose-zookeeper
       ports:
         - "2181:2181"
         
@@ -17,33 +17,34 @@ services:
         KAFKA_ADVERTISED_HOST_NAME: 192.168.31.50
         KAFKA_CREATE_TOPICS: "test:1:1"
         KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      volumes:
-        - "./compose/kafka/docker.sock:/var/run/docker.sock"
+      # volumes:
+      #  - "./compose/kafka/docker.sock:/var/run/docker.sock"
 
     mysql:
       image: mysql
       container_name: compose-mysql
       ports:
         - "3306:3306"
-      volumes: 
-          - ./compose/mysql/conf:/etc/mysql/conf.d
-          - ./compose/mysql/logs:/logs
-          - ./compose/mysql/data:/var/lib/mysql
+     # volumes: 
+     #     - ./compose/mysql/conf:/etc/mysql/conf.d
+     #     - ./compose/mysql/logs:/logs
+     #     - ./compose/mysql/data:/var/lib/mysql
           
       environment:
-        MYSQL_ROOT_PASSWORD: "123456"
+        MYSQL_ROOT_PASSWORD: 123456
 
     redis:
       image: redis
       container_name: compose-redis
       ports:
         - "6379:6379"
-      volumes:
-        - "./compose/redis:/data"
+     # volumes:
+     #   - "./compose/redis:/data"
 
     aspcorerestapi:
       build: .
       image: aspcorerestapi:latest
       container_name: compose-aspcorerestapi
+      depends_on: [kafka,mysql,redis]
       ports:
         - "80:80"
