@@ -3,14 +3,16 @@ using System;
 using ASPCoreRestfulApiDemo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASPCoreRestfulApiDemo.Migrations
 {
     [DbContext(typeof(AspCoreRestApiDbContext))]
-    partial class AspCoreRestApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200301065103_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
