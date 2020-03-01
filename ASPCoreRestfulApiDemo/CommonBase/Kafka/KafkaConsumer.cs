@@ -15,6 +15,11 @@ namespace ASPCoreRestfulApiDemo.Kafka
 
         public void Subscribe(Action<T> dealMessage)
         {
+
+            Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            Console.WriteLine(ConfigEntity.Instance.kafkaMapping.BootstrapServers);
+            Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
             var config = new ConsumerConfig
             {
                 GroupId = ConsumerGroup,

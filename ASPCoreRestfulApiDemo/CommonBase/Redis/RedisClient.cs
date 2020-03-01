@@ -15,6 +15,9 @@ namespace ASPCoreRestfulApiDemo.CommonBase.Redis
 
         public RedisClient()
         {
+            Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            Console.WriteLine(ConfigEntity.Instance.RedisHost);
+            Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             Redis = ConnectionMultiplexer.Connect(ConfigEntity.Instance.RedisHost);
             RedisDb = Redis.GetDatabase();
         }
