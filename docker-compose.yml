@@ -19,7 +19,7 @@ services:
         KAFKA_ADVERTISED_HOST_NAME: lcalhost
         KAFKA_CREATE_TOPICS: "test:1:1"
         KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-       volumes:
+      volumes:
         - "./compose/kafka/docker.sock:/var/run/docker.sock"
 
     mysql:
