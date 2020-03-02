@@ -7,6 +7,7 @@ services:
       restart: always
       ports:
         - "2181:2181"
+      networks: aspnet
         
     kafka:
       image: wurstmeister/kafka
@@ -16,11 +17,13 @@ services:
       ports:
         - "9092:9092"
       environment:
-        KAFKA_ADVERTISED_HOST_NAME: lcalhost
+        KAFKA_ADVERTISED_HOST_NAME: localhost
+        KAFKA_BROKER_ID: 1
         KAFKA_CREATE_TOPICS: "test:1:1"
         KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       volumes:
         - "./compose/kafka/docker.sock:/var/run/docker.sock"
+      networks: aspnet
 
     mysql:
       restart: always
@@ -35,6 +38,7 @@ services:
           
       environment:
         MYSQL_ROOT_PASSWORD: 123456
+      networks: aspnet
 
     redis:
       image: redis
@@ -44,7 +48,8 @@ services:
         - "6379:6379"
       volumes:
         - "./compose/redis:/data"
-
+      networks: aspnet
+    
     aspcorerestapi:
       build: .
       container_name: compose-aspcorerestapi
@@ -52,3 +57,8 @@ services:
       restart: always
       ports:
         - "80:80"
+      networks: aspnet
+         
+networks: 
+  aspnet:
+    driver: bridge
