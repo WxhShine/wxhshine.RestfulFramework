@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPCoreRestfulApiDemo", "ASPCoreRestfulApiDemo\ASPCoreRestfulApiDemo.csproj", "{A0503366-BE46-42D2-98A9-2F4A20EBAD3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPCoreRestfulApiDemoTests", "ASPCoreRestfulApiDemoTests\ASPCoreRestfulApiDemoTests.csproj", "{75F4DBAC-77E5-4948-AE30-E3EF5A51B5AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPCoreRestfulApiDemoTests", "ASPCoreRestfulApiDemoTests\ASPCoreRestfulApiDemoTests.csproj", "{75F4DBAC-77E5-4948-AE30-E3EF5A51B5AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPCoreGraphQL", "ASPCoreGraphQL\ASPCoreGraphQL.csproj", "{4A34F5E8-050B-47B8-BB9F-846E5F6EA39F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{75F4DBAC-77E5-4948-AE30-E3EF5A51B5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75F4DBAC-77E5-4948-AE30-E3EF5A51B5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75F4DBAC-77E5-4948-AE30-E3EF5A51B5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A34F5E8-050B-47B8-BB9F-846E5F6EA39F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A34F5E8-050B-47B8-BB9F-846E5F6EA39F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A34F5E8-050B-47B8-BB9F-846E5F6EA39F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A34F5E8-050B-47B8-BB9F-846E5F6EA39F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
