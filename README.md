@@ -1,4 +1,5 @@
-# RestfulAPIDemo
+# ResutfulFramework
+
 ASP.Net Core WebAPI Practice
 
 此项目用于自我练习:
