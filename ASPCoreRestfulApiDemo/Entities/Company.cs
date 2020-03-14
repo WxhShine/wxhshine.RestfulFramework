@@ -10,7 +10,7 @@ namespace ASPCoreRestfulApiDemo.Entities
     public class Company
     {
         [Key]
-        [Column(TypeName = "varchar"),MaxLength(32),MinLength(32)]
+        [MaxLength(36),MinLength(36)]
         public string Id { get; set; }
         [Required,MaxLength(100)]
         public string Name { get; set; }

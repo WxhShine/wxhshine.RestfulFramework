@@ -1,33 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ASPCoreRestfulApiDemo.CommonBase.Redis;
+using ASPCoreRestfulApiDemo.Configuration;
 using ASPCoreRestfulApiDemo.Data;
-using ASPCoreRestfulApiDemo.Entities;
+using ASPCoreRestfulApiDemo.Kafka;
 using ASPCoreRestfulApiDemo.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace ASPCoreRestfulApiDemo
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
         public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration) => Configuration = configuration;
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,26 +33,30 @@ namespace ASPCoreRestfulApiDemo
             }).AddXmlDataContractSerializerFormatters();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, o =>
-            {
-                o.LoginPath = new PathString(@"/api/login/reLogin");
-            });
+                    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
+                               o =>
+                               {
+                                   o.LoginPath = new PathString(@"/api/login/reLogin");
+                               });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddDbContext<AspCoreRestApiDbContext>(x =>
             {
-                x.UseMySQL(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
+                x.UseMySql(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
             });
-            
+
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddSingleton<ITestKafkaConsumer, TestKafkaConsumer>();
+            services.AddSingleton<IRedisClient, RedisClient>();
+
             Configuration.GetSection("ConfigEntity").Bind(ConfigEntity.Instance);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if(env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -73,15 +72,14 @@ namespace ASPCoreRestfulApiDemo
                 });
             }
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
         }
+
+
     }
 }

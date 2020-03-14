@@ -10,9 +10,11 @@ namespace ASPCoreRestfulApiDemo.Entities
     public class FileUpload 
     {
         [Key]
-        [Column(TypeName ="varchar"),MaxLength(32),MinLength(32)]
+        [MaxLength(36),MinLength(36)]
         public Guid Id { get; set; }
+        [MaxLength(100)]
         public string FileName { get; set; }
+        [MaxLength(1000)]
         public string FilePath { get; set; }
     }
 }

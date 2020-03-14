@@ -1,11 +1,7 @@
-﻿using ASPCoreRestfulApiDemo.Entities;
+﻿using ASPCoreRestfulApiDemo.Configuration;
 using ASPCoreRestfulApiDemo.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ASPCoreRestfulApiDemo.Controllers
 {
@@ -14,27 +10,16 @@ namespace ASPCoreRestfulApiDemo.Controllers
     public class ConfigurationController : ControllerBase
     {
         private readonly IConfiguration _config;
-        public ConfigurationController(IConfiguration configuration)
-        {
-            _config = configuration;
-        }
 
-        [HttpGet("DI/{configName}")]
-        public IActionResult GetConfigurationByDI(string configName)
-        {
-            return Ok(_config[configName]);
-        }
+        public ConfigurationController(IConfiguration configuration) => _config = configuration;
 
         [HttpGet("class")]
-        public IActionResult GetConfigurationByClass()
-        {
-            return Ok(ConfigEntity.Instance.ConfigurationShow);
-        }
+        public IActionResult GetConfigurationByClass() => Ok(ConfigEntity.Instance.ConfigurationShow);
+
+        [HttpGet("DI/{configName}")]
+        public IActionResult GetConfigurationByDI(string configName) => Ok(_config[configName]);
 
         [HttpGet("helper/{configName}")]
-        public IActionResult GetConfigurationByHelper(string configName)
-        {
-            return Ok(ConfigHelper.GetConfig(configName));
-        }
+        public IActionResult GetConfigurationByHelper(string configName) => Ok(ConfigHelper.GetConfig(configName));
     }
 }

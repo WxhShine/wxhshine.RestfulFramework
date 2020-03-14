@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASPCoreRestfulApiDemo.Data;
+using ASPCoreRestfulApiDemo.Kafka;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,31 +17,42 @@ namespace ASPCoreRestfulApiDemo
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
-            using(var scope = host.Services.CreateScope())
+            var hostBuilder = CreateHostBuilder(args);
+            IHost host;
+            try
             {
+                host = hostBuilder.Build();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+            using (var scope = host.Services.CreateScope())
+            {
+                var testConsumer = scope.ServiceProvider.GetService<ITestKafkaConsumer>();
+                testConsumer.Subscribe();
                 var dbContext = scope.ServiceProvider.GetService<AspCoreRestApiDbContext>();
                 try
                 {
-
-                    //dbContext.Database.EnsureDeleted();
-                    dbContext.Database.EnsureCreated();
-                    //dbContext.Database.Migrate();
+                    dbContext.Database.EnsureDeleted();
+                    //dbContext.Database.EnsureCreated();
+                    dbContext.Database.Migrate();
                 }
                 catch (Exception ex)
                 {
                     var logger = scope.ServiceProvider.GetService<ILogger<Program>>();
-                    logger.LogError(ex, "Ç¨ÒÆÊý¾Ý¿âÊ§°Ü");
+                    logger.LogError(ex, "æ•°æ®åº“è¿žæŽ¥å¤±è´¥");
                 }
             }
-            host.Run(); ;
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-               webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }

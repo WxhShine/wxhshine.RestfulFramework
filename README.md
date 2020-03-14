@@ -13,4 +13,14 @@ services.AddAuthentication()
 AutoMapper的使用
 services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-文件上传功能: base64, 流上传, 大文件断点续传
+文件上传功能: base64, 流上传, 大文件断点续
+
+Kafka简单的使用框架
+
+Redis简单的使用框架 = Redis分布式锁
+
+Docker支持
+
+Docker-Compose支持
+
+
