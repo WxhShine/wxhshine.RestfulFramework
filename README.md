@@ -1,4 +1,4 @@
-# ResutfulFramework
+# RestfulFramework
 
 ASP.Net Core WebAPI Practice
 
