@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ASPCoreRestfulApiDemo\ASPCoreRestfulApiDemo.csproj" />
+    <ProjectReference Include="..\ASPCoreRestfulApiDemo\wxhshine.Interface.RestfulAPI.csproj" />
   </ItemGroup>
 
 </Project>
