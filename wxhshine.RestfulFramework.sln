@@ -35,8 +35,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wxhshine.Test.RestfulAPITes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wxhshine.Interface.RestAPI", "wxhshine.Interface.RestAPI\wxhshine.Interface.RestAPI.csproj", "{1BBCF647-C7E7-4F6A-AA96-28E299FB7C99}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wxhshine.Interface.GraphQL", "wxhshine.Interface.GraphQL\wxhshine.Interface.GraphQL.csproj", "{99ACD20C-04BB-42BA-A1A1-E6F0A3DC6016}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,10 +85,6 @@ Global
 		{1BBCF647-C7E7-4F6A-AA96-28E299FB7C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BBCF647-C7E7-4F6A-AA96-28E299FB7C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BBCF647-C7E7-4F6A-AA96-28E299FB7C99}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99ACD20C-04BB-42BA-A1A1-E6F0A3DC6016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99ACD20C-04BB-42BA-A1A1-E6F0A3DC6016}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99ACD20C-04BB-42BA-A1A1-E6F0A3DC6016}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99ACD20C-04BB-42BA-A1A1-E6F0A3DC6016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,7 +101,6 @@ Global
 		{24B8FD1D-AE2D-46D9-9E9C-4107F2F4345C} = {BB297649-BBB7-493A-8226-3DC59A9851DC}
 		{401E2E1B-653A-457C-9204-7F458E60A94D} = {C0E77AE2-149B-4A15-92B2-146BF5F57358}
 		{1BBCF647-C7E7-4F6A-AA96-28E299FB7C99} = {6348C953-73C9-4C6E-8A73-7C05983F920A}
-		{99ACD20C-04BB-42BA-A1A1-E6F0A3DC6016} = {6348C953-73C9-4C6E-8A73-7C05983F920A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8CF0FD24-1469-49D4-A8BB-EBEB2EC01C24}

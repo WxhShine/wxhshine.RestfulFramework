@@ -43,4 +43,11 @@ namespace ASPCoreRestfulApiDemo.Model
             return ValidationResult.Success;
         }
     }
+
+    public class RedisSetDto
+    {
+        public string Key { get; set; }
+        public string Value { get; set; }
+        public TimeSpan? Expiry { get; set; }
+    }
 }
