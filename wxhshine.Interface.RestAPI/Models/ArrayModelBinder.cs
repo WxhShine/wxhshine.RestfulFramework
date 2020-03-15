@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace ASPCoreRestfulApiDemo.Utils
+namespace wxhshine.Infrastructure.Common.Utils
 {
     public class ArrayModelBinder : IModelBinder
     {

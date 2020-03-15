@@ -1,7 +1,7 @@
-﻿using ASPCoreRestfulApiDemo.Configuration;
-using ASPCoreRestfulApiDemo.Utils;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using wxhshine.Domian.Entities;
+using wxhshine.Infrastructure.Common.Utils;
 
 namespace ASPCoreRestfulApiDemo.Controllers
 {

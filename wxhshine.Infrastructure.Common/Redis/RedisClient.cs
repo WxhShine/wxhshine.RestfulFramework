@@ -1,12 +1,12 @@
-﻿using ASPCoreRestfulApiDemo.Configuration;
-using StackExchange.Redis;
+﻿using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using wxhshine.Infrastructure.Common.Configuration;
 
-namespace ASPCoreRestfulApiDemo.CommonBase.Redis
+namespace wxhshine.Infrastructure.Common.Redis
 {
     public class RedisClient : IRedisClient
     {

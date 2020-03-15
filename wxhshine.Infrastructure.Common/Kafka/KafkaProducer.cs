@@ -1,10 +1,10 @@
-﻿using ASPCoreRestfulApiDemo.Configuration;
-using Confluent.Kafka;
+﻿using Confluent.Kafka;
 using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
+using wxhshine.Infrastructure.Common.Configuration;
 
-namespace ASPCoreRestfulApiDemo.Kafka
+namespace wxhshine.Infrastructure.Common.Kafka
 {
     public class KafkaProducer
     {

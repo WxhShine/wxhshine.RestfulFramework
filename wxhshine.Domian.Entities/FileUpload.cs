@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASPCoreRestfulApiDemo.Entities
+namespace wxhshine.Domian.Entities
 {
     public class FileUpload 
     {

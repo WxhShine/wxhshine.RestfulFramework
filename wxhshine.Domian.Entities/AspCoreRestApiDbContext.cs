@@ -1,12 +1,8 @@
-﻿using ASPCoreRestfulApiDemo.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace ASPCoreRestfulApiDemo.Data
+namespace wxhshine.Domian.Entities
 {
     public class AspCoreRestApiDbContext : DbContext
     {

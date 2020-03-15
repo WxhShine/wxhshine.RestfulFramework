@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\wxhshine.Domain.IRepositories\wxhshine.Domain.IRepositories.csproj" />
+    <ProjectReference Include="..\wxhshine.Domian.Entities\wxhshine.Domian.Entities.csproj" />
+    <ProjectReference Include="..\wxhshine.Infrastructure.Common\wxhshine.Infrastructure.Common.csproj" />
+  </ItemGroup>
+
 </Project>

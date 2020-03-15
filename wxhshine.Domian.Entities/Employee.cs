@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ASPCoreRestfulApiDemo.Entities
+namespace wxhshine.Domian.Entities
 {
     public class Employee
     {

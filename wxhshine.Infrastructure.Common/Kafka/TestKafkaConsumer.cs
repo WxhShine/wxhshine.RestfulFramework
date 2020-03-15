@@ -1,12 +1,12 @@
-﻿using ASPCoreRestfulApiDemo.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using wxhshine.Infrastructure.Common.Kafka.KafkaEntities;
 
-namespace ASPCoreRestfulApiDemo.Kafka
+namespace wxhshine.Infrastructure.Common.Kafka
 {
-    public class TestKafkaConsumer :  ITestKafkaConsumer
+    public class TestKafkaConsumer : ITestKafkaConsumer
     {
 
         private KafkaConsumer<TestKafkaEntity> consumer { get; set; }

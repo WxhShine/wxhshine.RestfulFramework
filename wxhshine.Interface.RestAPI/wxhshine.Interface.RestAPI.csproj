@@ -16,7 +16,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Repository\" />
     <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\wxhshine.Application.DTO\wxhshine.Application.DTO.csproj" />
+    <ProjectReference Include="..\wxhshine.Domain.IRepositories\wxhshine.Domain.IRepositories.csproj" />
+    <ProjectReference Include="..\wxhshine.Domain.Repositories\wxhshine.Domain.Repositories.csproj" />
+    <ProjectReference Include="..\wxhshine.Infrastructure.Common\wxhshine.Infrastructure.Common.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

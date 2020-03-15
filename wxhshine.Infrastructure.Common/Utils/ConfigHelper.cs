@@ -1,11 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace ASPCoreRestfulApiDemo.Utils
+namespace wxhshine.Infrastructure.Common.Utils
 {
     public static class ConfigHelper
     {

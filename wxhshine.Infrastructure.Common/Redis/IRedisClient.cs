@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace ASPCoreRestfulApiDemo.CommonBase.Redis
+namespace wxhshine.Infrastructure.Common.Redis
 {
     public interface IRedisClient
     {

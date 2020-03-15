@@ -1,12 +1,12 @@
-﻿using ASPCoreRestfulApiDemo.Configuration;
-using Confluent.Kafka;
+﻿using Confluent.Kafka;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using wxhshine.Infrastructure.Common.Configuration;
 
-namespace ASPCoreRestfulApiDemo.Kafka
+namespace wxhshine.Infrastructure.Common.Kafka
 {
     public class KafkaConsumer<T> where   T : KafkaMessage
     {

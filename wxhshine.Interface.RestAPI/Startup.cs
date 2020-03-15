@@ -1,22 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ASPCoreRestfulApiDemo.Data;
-using ASPCoreRestfulApiDemo.Entities;
-using ASPCoreRestfulApiDemo.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using wxhshine.Domain.IRepositories;
+using wxhshine.Domain.Repositories;
+using wxhshine.Infrastructure.Common.Configuration;
 
 namespace ASPCoreRestfulApiDemo
 {
@@ -46,7 +40,7 @@ namespace ASPCoreRestfulApiDemo
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<ICompanyRepository, CompanyRepository>();
-            services.AddDbContext<AspCoreRestApiDbContext>(x =>
+            services.AddDbContext<wxhshine.Domian.Entities.AspCoreRestApiDbContext>(x =>
             {
                 x.UseMySQL(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
             });

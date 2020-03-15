@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using ASPCoreRestfulApiDemo.Entities;
-using ASPCoreRestfulApiDemo.Model;
-using ASPCoreRestfulApiDemo.Repository;
-using ASPCoreRestfulApiDemo.Utils;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using wxhshine.Application.DTO;
+using wxhshine.Domain.IRepositories;
+using wxhshine.Domian.Entities;
+using wxhshine.Infrastructure.Common.Utils;
 
 namespace ASPCoreRestfulApiDemo.Controllers
 {

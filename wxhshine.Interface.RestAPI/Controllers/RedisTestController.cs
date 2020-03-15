@@ -1,10 +1,7 @@
-﻿using ASPCoreRestfulApiDemo.CommonBase.Redis;
-using ASPCoreRestfulApiDemo.Model;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using wxhshine.Application.DTO;
+using wxhshine.Infrastructure.Common.Redis;
 
 namespace ASPCoreRestfulApiDemo.Controllers
 {

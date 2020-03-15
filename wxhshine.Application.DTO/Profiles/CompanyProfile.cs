@@ -1,12 +1,9 @@
-﻿using ASPCoreRestfulApiDemo.Entities;
-using ASPCoreRestfulApiDemo.Model;
-using AutoMapper;
+﻿using AutoMapper;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using wxhshine.Domian.Entities;
 
-namespace ASPCoreRestfulApiDemo.Profiles
+namespace wxhshine.Application.DTO.Profiles
 {
     public class CompanyProfile : Profile
     {

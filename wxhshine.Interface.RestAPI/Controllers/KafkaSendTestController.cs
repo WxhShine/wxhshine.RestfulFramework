@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using ASPCoreRestfulApiDemo.Entities;
-using ASPCoreRestfulApiDemo.Kafka;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
+using wxhshine.Infrastructure.Common.Kafka;
+using wxhshine.Infrastructure.Common.Kafka.KafkaEntities;
 
 namespace ASPCoreRestfulApiDemo.Controllers
 {

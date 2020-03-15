@@ -1,14 +1,13 @@
-﻿using ASPCoreRestfulApiDemo.Data;
-using ASPCoreRestfulApiDemo.Entities;
-using ASPCoreRestfulApiDemo.Utils;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using wxhshine.Domain.IRepositories;
+using wxhshine.Domian.Entities;
+using wxhshine.Infrastructure.Common.Utils;
 
-namespace ASPCoreRestfulApiDemo.Repository
+namespace wxhshine.Domain.Repositories
 {
     public class CompanyRepository : ICompanyRepository
     {
