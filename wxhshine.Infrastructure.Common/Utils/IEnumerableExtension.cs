@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace wxhshine.Infrastructure.Common.Utils
 {
-    public static class ICollectionExtension
+    public static class IEnumerableExtension
     {
-        public static void Foreach<T>(this ICollection<T> collections, Action<T> action)
+        public static void Foreach<T>(this IEnumerable<T> collections, Action<T> action)
         {
             foreach(var item in collections)
             {

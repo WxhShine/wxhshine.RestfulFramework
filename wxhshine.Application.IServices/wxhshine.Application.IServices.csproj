@@ -1,7 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\wxhshine.Application.DTO\wxhshine.Application.DTO.csproj" />
+    <ProjectReference Include="..\wxhshine.Domain.IRepositories\wxhshine.Domain.IRepositories.csproj" />
+    <ProjectReference Include="..\wxhshine.Domain.IServices\wxhshine.Domain.IServices.csproj" />
+    <ProjectReference Include="..\wxhshine.Domian.Entities\wxhshine.Domian.Entities.csproj" />
+    <ProjectReference Include="..\wxhshine.Infrastructure.Common\wxhshine.Infrastructure.Common.csproj" />
+  </ItemGroup>
 
 </Project>

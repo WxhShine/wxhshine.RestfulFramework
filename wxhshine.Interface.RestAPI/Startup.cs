@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using wxhshine.Domain.IRepositories;
-using wxhshine.Domain.Repositories;
 using wxhshine.Infrastructure.Common.Configuration;
+using wxhshine.Infrastructure.Common.DIBuilder;
+using wxhshine.Infrastructure.Common.Utils;
 
 namespace ASPCoreRestfulApiDemo
 {
@@ -39,10 +39,16 @@ namespace ASPCoreRestfulApiDemo
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddScoped<ICompanyRepository, CompanyRepository>();
-            services.AddDbContext<wxhshine.Domian.Entities.AspCoreRestApiDbContext>(x =>
+            //services.AddDbContext<wxhshine.Domian.Entities.AspCoreRestApiDbContext>(x =>
+            //{
+            //    x.UseMySQL(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
+            //});
+
+            var diTypes = AppDomainTypeFinder.GetSubClassType(typeof(IDIBuilder));
+            diTypes.Foreach(x =>
             {
-                x.UseMySQL(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
+                var instance =(IDIBuilder) Activator.CreateInstance(x);
+                instance.DIBuilder(services);
             });
             
             Configuration.GetSection("ConfigEntity").Bind(ConfigEntity.Instance);
