@@ -11,10 +11,16 @@ namespace wxhshine.Infrastructure.Common.Configuration
         public KafkaMapping kafkaMapping { get; set; }
         public string ConfigurationShow { get; set; }
         public string RedisHost { get; set; }
+        public ConnectionStrings ConnectionStrings { get; set; }
     }
 
     public class KafkaMapping
     {
         public string BootstrapServers { get; set; }
+    }
+
+    public class ConnectionStrings
+    {
+        public string AspCoreRestApiDbStr { get; set; }
     }
 }

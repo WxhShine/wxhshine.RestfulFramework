@@ -1,18 +1,18 @@
-using System;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using wxhshine.Application.DTO.Profiles;
 using wxhshine.Infrastructure.Common.Configuration;
 using wxhshine.Infrastructure.Common.DIBuilder;
 using wxhshine.Infrastructure.Common.Utils;
 
-namespace ASPCoreRestfulApiDemo
+namespace wxhshine.Interface.RestAPI
 {
     public class Startup
     {
@@ -37,21 +37,18 @@ namespace ASPCoreRestfulApiDemo
                 o.LoginPath = new PathString(@"/api/login/reLogin");
             });
 
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(typeof(CompanyProfile));
 
-            //services.AddDbContext<wxhshine.Domian.Entities.AspCoreRestApiDbContext>(x =>
-            //{
-            //    x.UseMySQL(Configuration.GetConnectionString("AspCoreRestApiDbStr"));
-            //});
+            Configuration.GetSection("ConfigEntity").Bind(ConfigEntity.Instance);
+
 
             var diTypes = AppDomainTypeFinder.GetSubClassType(typeof(IDIBuilder));
             diTypes.Foreach(x =>
             {
-                var instance =(IDIBuilder) Activator.CreateInstance(x);
+                var instance = (IDIBuilder)Activator.CreateInstance(x);
                 instance.DIBuilder(services);
             });
-            
-            Configuration.GetSection("ConfigEntity").Bind(ConfigEntity.Instance);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using wxhshine.Domian.Entities;
+using wxhshine.Infrastructure.Common.Configuration;
 using wxhshine.Infrastructure.Common.Utils;
 
-namespace ASPCoreRestfulApiDemo.Controllers
+namespace wxhshine.Interface.RestAPI.Controllers
 {
     [ApiController]
     [Route("api/configuration/")]

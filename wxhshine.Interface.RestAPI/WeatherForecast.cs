@@ -1,6 +1,6 @@
 using System;
 
-namespace ASPCoreRestfulApiDemo
+namespace wxhshine.Interface.RestAPI
 {
     public class WeatherForecast
     {

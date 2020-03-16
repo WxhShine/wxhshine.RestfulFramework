@@ -3,7 +3,7 @@ using System;
 using wxhshine.Application.DTO;
 using wxhshine.Infrastructure.Common.Redis;
 
-namespace ASPCoreRestfulApiDemo.Controllers
+namespace wxhshine.Interface.RestAPI.Controllers
 {
     [ApiController]
     [Route("api/redis/")]

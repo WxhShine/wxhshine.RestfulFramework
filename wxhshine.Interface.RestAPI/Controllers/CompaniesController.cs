@@ -1,62 +1,55 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Threading.Tasks;
-//using AutoMapper;
-//using Microsoft.AspNetCore.Authentication.Cookies;
-//using Microsoft.AspNetCore.Authorization;
-//using Microsoft.AspNetCore.Mvc;
-//using wxhshine.Application.DTO;
-//using wxhshine.Domian.Entities;
-//using wxhshine.Infrastructure.Common.Utils;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using wxhshine.Application.DTO;
+using wxhshine.Application.IServices;
+using wxhshine.Domian.Entities;
+using wxhshine.Interface.RestAPI.Models;
 
-//namespace ASPCoreRestfulApiDemo.Controllers
-//{
-//    [ApiController]
-//    [Route("api/compaies/")]
-//    [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
-//    public class CompaniesController : ControllerBase
-//    {
-//        //private readonly ICompanyRepository _companyRepository;
-//        private readonly IMapper _mapper;
+namespace wxhshine.Interface.RestAPI.Controllers
+{
+    [ApiController]
+    [Route("api/compaies/")]
+    //[Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+    public class CompaniesController : ControllerBase
+    {
+        private readonly ICompanyService _companyService;
 
-//        public CompaniesController(ICompanyRepository companyRepository,IMapper mapper)
-//        {
-//            _companyRepository = companyRepository ?? throw new ArgumentNullException(nameof(companyRepository));
-//            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-//        }
+        public CompaniesController(ICompanyService companyService, IMapper mapper)
+        {
+            _companyService = companyService ?? throw new ArgumentNullException(nameof(companyService));
+        }
 
-//        [HttpGet]
-//        public async Task<ActionResult<IEnumerable<CompanyDto>>> GetCompanies()
-//        {
-//            var companies = await _companyRepository.GetCompaniesAsync();
-//            var companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companies);
-//            return new JsonResult(companiesDto);
-//        }
+        [HttpGet]
+        public ActionResult<IEnumerable<CompanyDto>> GetCompanies()
+        {
+            var companies = _companyService.GetCompanies();
+            return new JsonResult(companies);
+        }
 
-//        [HttpGet("{companyIds}")]
-//        public async Task<IActionResult> GetCompany([FromRoute][ModelBinder(typeof(ArrayModelBinder))]IEnumerable<Guid> companyIds)
-//        {
-//            var companies = await _companyRepository.GetCompaniesAsync(companyIds);
-//            var companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companies);
-//            return new JsonResult(companiesDto);
-//        }
+        [HttpGet("{companyIds}")]
+        public IActionResult GetCompany([FromRoute][ModelBinder(typeof(ArrayModelBinder))]IEnumerable<Guid> companyIds)
+        {
+            var companies = _companyService.GetCompanies(companyIds);
+            return new JsonResult(companies);
+        }
 
-//        [HttpPost]
-//        public IActionResult AddCompany(AddCompanyDto request)
-//        {
-//            if (!ModelState.IsValid)
-//            {
-//                //return 
-//            }
-//            var company = new Company
-//                          {
-//                              Introduction = request.Introduction,
-//                              Name = request.Name
-//                          };
-//            _companyRepository.AddCompany(company);
-//            var result = _companyRepository.SaveAsync().Result;
-//            return Ok();
-//        }
+        [HttpPost]
+        public IActionResult AddCompany(AddCompanyDto request)
+        {
+            if (!ModelState.IsValid)
+            {
+                //return 
+            }
+            var company = new Company
+            {
+                Introduction = request.Introduction,
+                Name = request.Name
+            };
+            _companyService.AddCompany(request);
+            return Ok();
+        }
 
-//    }
-//}
+    }
+}

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using wxhshine.Domian.Entities;
 
-namespace ASPCoreRestfulApiDemo.Controllers
+namespace wxhshine.Interface.RestAPI.Controllers
 {
     [ApiController]
     [Route("api/uploadFile")]

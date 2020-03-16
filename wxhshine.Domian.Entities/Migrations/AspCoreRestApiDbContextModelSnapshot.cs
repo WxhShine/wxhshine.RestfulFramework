@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace ASPCoreRestfulApiDemo.Migrations
+namespace wxhshine.Domian.Entities.Migrations
 {
     [DbContext(typeof(AspCoreRestApiDbContext))]
     partial class AspCoreRestApiDbContextModelSnapshot : ModelSnapshot

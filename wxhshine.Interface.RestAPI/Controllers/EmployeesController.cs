@@ -1,16 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using wxhshine.Domian.Entities;
 
-namespace ASPCoreRestfulApiDemo.Controllers
+namespace wxhshine.Interface.RestAPI.Controllers
 {
     [ApiController]
     [Route("api/company/{companyId}/employees")]
-    public class EmployeesController:ControllerBase
+    public class EmployeesController : ControllerBase
     {
         private readonly IMapper _mapper;
         private readonly AspCoreRestApiDbContext _context;
